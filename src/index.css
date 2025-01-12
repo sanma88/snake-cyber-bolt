@@ -1,0 +1,142 @@
+@import 'tailwindcss/base';
+    @import 'tailwindcss/components';
+    @import 'tailwindcss/utilities';
+
+    body {
+      margin: 0;
+      display: flex;
+      place-items: center;
+      min-width: 320px;
+      min-height: 100vh;
+      background-color: #000;
+      color: #00ffff;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    #root {
+      width: 100%;
+      text-align: center;
+    }
+
+    .game-area {
+      width: 300px;
+      height: 300px;
+      border: 2px solid #8a2be2;
+      margin: 20px auto;
+      position: relative;
+      box-shadow: 0 0 10px #8a2be2, inset 0 0 10px #8a2be2;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    .snake-segment {
+      position: absolute;
+      background: linear-gradient(to right, #00ff00, #00ffff);
+      box-shadow: 0 0 5px #00ff00, 0 0 10px #00ffff;
+      z-index: 10;
+    }
+
+    .snake-head {
+      position: absolute;
+      background: linear-gradient(to right, #00ff00, #00ffff);
+      box-shadow: 0 0 5px #00ff00, 0 0 10px #00ffff;
+      z-index: 11;
+      border-radius: 50% 50% 0 0;
+      transform: rotate(-90deg);
+    }
+
+    .snake-head-eye {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background-color: #ff0000;
+      border-radius: 50%;
+      z-index: 12;
+    }
+
+    .food {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wall {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #8a2be2;
+      box-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2;
+      z-index: 9;
+    }
+
+    .firework {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .particle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: #ff0000;
+      border-radius: 50%;
+      opacity: 0;
+      animation: explode 1s ease-out;
+    }
+
+    @keyframes explode {
+      0% {
+        opacity: 1;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(2);
+      }
+    }
+
+    .game-over-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #0d1117;
+      color: #00ffff;
+      padding: 30px;
+      border: 2px solid #8a2be2;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #8a2be2;
+      z-index: 100;
+      text-align: center;
+    }
+
+    .game-over-popup h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .game-over-popup p {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .game-over-popup button {
+      background-color: #00ffff;
+      color: #0d1117;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .game-over-popup button:hover {
+      background-color: #00dddd;
+    }
